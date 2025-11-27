@@ -1,0 +1,223 @@
+/* =========================
+   GLOBAL STYLE
+========================= */
+:root{
+    --primary: #0d6efd;
+    --primary-dark: #0a58d6;
+    --bg: #f5f7fa;
+    --text: #222;
+    --muted: #6c757d;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding-top: 70px; /* ruang untuk navbar tetap (sesuaikan jika navbar tinggi berubah) */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container helper (jika mau override bootstrap) */
+.container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* =========================
+   NAVBAR MODERN & RAPI
+========================= */
+.navbar {
+    padding: 8px 0 !important;
+    backdrop-filter: saturate(120%) blur(4px);
+}
+
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.navbar .navbar-brand img,
+.navbar-brand .logo {
+    height: 40px;
+    width: auto;
+    display: inline-block;
+}
+
+/* login button styling helper */
+.login-btn,
+.btn.login-btn {
+    padding: 6px 15px !important;
+    border-radius: 8px;
+    font-size: .9rem;
+}
+
+/* =========================
+   HERO MODERN (gunakan .hero-section untuk konsistensi)
+========================= */
+.hero-section {
+    /* gunakan min-height supaya tidak memaksa ukuran tetap */
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a4bff 0%, var(--primary) 60%);
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Title responsive dengan clamp */
+.hero-section .hero-title,
+.hero-title {
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.05;
+    /* ukuran dinamis: minimal 28px, ideal 3rem, maksimal 72px */
+    font-size: clamp(28px, 6vw, 64px);
+}
+
+.hero-section .hero-subtitle,
+.hero-subtitle {
+    color: rgba(255,255,255,0.92);
+    margin-top: 12px;
+    font-size: clamp(14px, 2.2vw, 20px);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* tombol utama di hero */
+.hero-section .btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    padding: 12px 30px;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(13,110,253,0.15);
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.hero-section .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(13,110,253,0.18);
+}
+
+/* =========================
+   INFO / CONTENT SECTIONS
+========================= */
+.info {
+    padding: 60px 20px;
+    background: transparent;
+}
+
+.info h2 {
+    font-size: clamp(20px, 2.4vw, 32px);
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.info p {
+    max-width: 700px;
+    margin: 0 auto 10px;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 14px 20px;            /* padding terkunci */
+    text-align: center;
+    margin-top: 40px;
+    min-height: 56px;             /* minimal tinggi footer */
+    height: auto !important;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+/* Footer konten (jika butuh teks kecil di bawah) */
+footer .small {
+    font-size: .95rem;
+    opacity: .95;
+}
+
+/* =========================
+   UTILITY / LAYOUT HELPERS
+========================= */
+.rounded-lg {
+    border-radius: 14px !important;
+}
+
+.shadow-soft {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* =========================
+   RESPONSIVE ADJUSTMENTS
+========================= */
+@media (max-width: 992px) {
+    body { padding-top: 66px; }
+
+    .hero-section {
+        min-height: 50vh;
+        padding: 36px 18px;
+    }
+
+    .hero-section .btn-primary {
+        padding: 10px 24px;
+        font-size: 0.98rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body { padding-top: 64px; }
+
+    .hero-section {
+        min-height: 45vh;
+        padding: 30px 12px;
+    }
+
+    .hero-section .hero-title {
+        font-size: clamp(22px, 8vw, 36px);
+    }
+
+    footer {
+        padding: 12px 14px;
+        font-size: .95rem;
+        min-height: 48px;
+    }
+
+    .navbar .navbar-brand img {
+        height: 34px;
+    }
+}
+
+/* =========================
+   DEBUG HELPERS (non aktifkan kecuali perlu)
+========================= */
+/* .debug-outline * { outline: 1px dashed rgba(0,0,0,0.08); } */
